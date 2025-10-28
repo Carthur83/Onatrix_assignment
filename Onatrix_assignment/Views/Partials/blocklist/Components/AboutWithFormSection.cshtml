@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.AboutWithFormSection)Model.Content;
+}
+
+<section id="about" class="custom-container pb-6 pt-4 grid grid-cols-5 place-items-center">
+
+    <div class="col-span-3 pr-5">
+
+        <p class="text-secondary text-sm font-bold">@content.Label</p>
+        <h2 class="text-primary font-bold text-[2.5rem] mb-8">@Html.Raw(content.Title)</h2>
+        <p class="text-body-text text-xl font-light mb-5 italic">@content.QuoteText</p>
+        <p class="text-body-text text-sm mb-5">@content.InfoText</p>
+        <img src="@content?.SignatureImage!.Url()" class="mb-2" alt="Signature">
+        <p class="text-body-text text-sm">@content?.SignatureText</p>
+
+    </div>
+
+    <div class="col-span-2 relative -translate-y-23">
+
+        <div class="bg-primary py-8 px-6 z-20">
+            <h3 class="text-3xl text-secondary-2 font-bold">@content?.FormTitle</h3>
+        </div>
+
+        <form class="w-full min-w-[475px] px-7 pb-9 pt-8 bg-light flex flex-col gap-5 shadow-lg">
+            <p class="text-body-text text-[.812rem] italic">@content?.FormText</p>
+            <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem]" type="text" placeholder="Name">
+            <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem]" type="text" placeholder="Email address">
+            <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem]" type="text" placeholder="Phone">
+            <select id="" name="" class="border border-input p-[.9rem] text-[.812rem]">
+                <option value="">Financial consulting</option>
+
+            </select>
+
+            <button class="bg-secondary-2 text-base font-bold text-primary py-[.9rem]">Submit</button>
+        </form>
+
+    </div>
+
+</section>
