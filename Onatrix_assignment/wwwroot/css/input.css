@@ -24,7 +24,10 @@
     --color-border-100: #EBEBEB;
     --color-border-200: #EAEAEA;
     --color-input: #EBEBEB;
+
     --font-poppins: "poppins", sans-serif;
+
+    --text-rte-lg: 2.5rem;
 }
 
 body {

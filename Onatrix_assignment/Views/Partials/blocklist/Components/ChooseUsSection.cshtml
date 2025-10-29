@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ChooseUsSection)Model.Content;
+}
+
+<section id="choose-us" class="custom-container mt-30">
+    <div class="-z-10 absolute translate-y-15">
+        <img src="images/dot-map 1.svg" alt="">
+    </div>
+    <div class="flex flex-col items-center">
+        <div>
+            @Html.Raw(content.ChooseUsTitle)
+        </div>
+        <p class="text-body-text text-base my-10 mx-48">@content.ChooseUsDescription</p>
+        <a class="bg-primary text-secondary-2 text-base font-bold rounded cursor-pointer py-4 px-10" href="">Read our story</a>
+    </div>
+
+    <div class="mt-20">
+        @if (content.ChooseUsImage != null)
+        {
+            <img src="@content.ChooseUsImage.Url()" alt="">
+        }
+        
+    </div>
+
+</section>

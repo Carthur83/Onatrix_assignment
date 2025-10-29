@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SuccessStorySection)Model.Content;
+}
+
+<section id="success-story" class="bg-primary relative pt-24 pb-45 mb-50 -z-999">
+            <div class="custom-container flex flex-col items-center relative">
+                <div class="-z-99">
+                    @if (content.BackgroundImage != null)
+                    {
+                <img src="@content.BackgroundImage.Url()" alt="@content.BackgroundImage.Name">
+                    }           
+                </div>
+                <div class="absolute">
+                    <div class="flex flex-col items-center">
+                    <p class="text-sm text-secondary font-bold">@content.SuccessStoryLabel</p>
+                    <h5 class="text-[2.5rem] text-light font-bold">@content.SuccessStoryTitle</h5>
+                </div>
+                    <div class="grid grid-cols-3 gap-4 mt-10">
+                    <div>
+                        <p class="text-[6.25rem] font-semibold text-secondary text-center leading-none">@content.CustomersCount</p>
+                        <p class="text-lg text-light font-semibold text-center pt-2">@content.CustomersCountText</p>
+                    </div>
+                    <div>
+                        <p class="text-[6.25rem] font-semibold text-secondary text-center leading-none">@content.ProjectsCount</p>
+                        <p class="text-lg text-light font-semibold text-center pt-2">@content.ProjectsCountText</p>
+                    </div>
+                    <div>
+                        <p class="text-[6.25rem] font-semibold text-secondary text-center leading-none">@content.BranchesCount</p>
+                        <p class="text-lg text-light font-semibold text-center pt-2">@content.BranchesCountText</p>
+                    </div>
+                </div>
+                
+                </div>
+                <div class="mt-20 absolute translate-y-69">
+                    @if (content.SuccessStoryImage != null)
+                    {
+                        <img src="@content.SuccessStoryImage.Url()" alt="@content.SuccessStoryImage.Name">
+                    }
+                </div>
+            </div>
+            
+        </section>
