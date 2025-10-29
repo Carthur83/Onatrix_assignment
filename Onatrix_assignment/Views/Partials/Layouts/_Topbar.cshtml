@@ -4,7 +4,7 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 
-    var address = siteSettings?.Address ?? "Ingen address";
+    var address = siteSettings?.Address ?? "No address added";
 
 }
 
