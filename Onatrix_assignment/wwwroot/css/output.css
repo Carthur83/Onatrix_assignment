@@ -18,17 +18,20 @@
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-light: 300;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-primary: #4F5955;
     --color-secondary: #D9C3A9;
     --color-secondary-2: #F2EDDC;
+    --color-gray-light: #F7F7F7;
     --color-gray-1: #9C9EA6;
     --color-gray-dark: #535656;
     --color-light: #FFFFFF;
     --color-body-text: var(--color-gray-dark);
     --color-border: #676e6c;
+    --color-border-100: #EBEBEB;
     --color-input: #EBEBEB;
     --font-poppins: "poppins", sans-serif;
   }
@@ -209,6 +212,12 @@
   .col-span-3 {
     grid-column: span 3 / span 3;
   }
+  .mx-72 {
+    margin-inline: calc(var(--spacing) * 72);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -230,8 +239,14 @@
   .table {
     display: table;
   }
+  .h-\[220px\] {
+    height: 220px;
+  }
   .h-full {
     height: 100%;
+  }
+  .min-h-\[350px\] {
+    min-height: 350px;
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
@@ -248,19 +263,21 @@
   .border-collapse {
     border-collapse: collapse;
   }
-  .-translate-y-20 {
-    --tw-translate-y: calc(var(--spacing) * -20);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-y-23 {
     --tw-translate-y: calc(var(--spacing) * -23);
     translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
   }
   .resize {
     resize: both;
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -277,14 +294,23 @@
   .justify-between {
     justify-content: space-between;
   }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
   .self-start {
     align-self: flex-start;
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -300,8 +326,20 @@
   .border-border {
     border-color: var(--color-border);
   }
+  .border-border-100 {
+    border-color: var(--color-border-100);
+  }
   .border-input {
     border-color: var(--color-input);
+  }
+  .bg-\[\"\#F7F7F7\"\] {
+    background-color: "#F7F7F7";
+  }
+  .bg-\[\@sectionColor\] {
+    background-color: @sectionColor;
+  }
+  .bg-gray-light {
+    background-color: var(--color-gray-light);
   }
   .bg-light {
     background-color: var(--color-light);
@@ -315,11 +353,11 @@
   .object-cover {
     object-fit: cover;
   }
-  .p-3 {
-    padding: calc(var(--spacing) * 3);
-  }
   .p-4 {
     padding: calc(var(--spacing) * 4);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
   }
   .p-\[\.9rem\] {
     padding: .9rem;
@@ -363,6 +401,9 @@
   .pb-9 {
     padding-bottom: calc(var(--spacing) * 9);
   }
+  .text-center {
+    text-align: center;
+  }
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
@@ -385,6 +426,9 @@
   .text-\[1\.125rem\] {
     font-size: 1.125rem;
   }
+  .text-\[1\.375rem\] {
+    font-size: 1.375rem;
+  }
   .text-\[2\.5rem\] {
     font-size: 2.5rem;
   }
@@ -402,6 +446,10 @@
   .font-light {
     --tw-font-weight: var(--font-weight-light);
     font-weight: var(--font-weight-light);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
   }
   .text-body-text {
     color: var(--color-body-text);
@@ -475,6 +523,26 @@ body {
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -618,6 +686,11 @@ body {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
