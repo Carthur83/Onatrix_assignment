@@ -41,3 +41,7 @@ body {
 .custom-shadow {
     box-shadow: 0 10px 25px rgba(75, 75, 75, 0.1);
 }
+
+.current a {
+    @apply text-secondary;
+}
