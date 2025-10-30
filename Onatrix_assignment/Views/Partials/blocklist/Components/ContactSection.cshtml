@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ContactSection)Model.Content;
+
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var address = siteSettings?.Address ?? "No address added";
+    var phoneNumber = siteSettings?.Phone ?? "No number added";
+    var email = siteSettings?.Email ?? "No email added";
+}
+
+<section id="contact-info" class="bg-light relative -z-999 pt-6 ">
+    <div class="custom-container grid grid-cols-2 gap-70 overflow-hidden">
+        <div>
+            <img src="@content?.ContactImage?.Url()" alt="">
+            <img class="absolute inset-y-11 -z-10" src="@content?.BgImage1?.Url()" alt="">
+        </div>
+
+        <div class="flex flex-col gap-8 justify-center ">
+
+            <h2 class="text-primary text-[2.5rem] font-bold leading-tight">Let us know about your next project</h2>
+
+            <div class="flex flex-col gap-9">
+
+                <div class="grid grid-cols-[auto_1fr] items-center gap-y-1 gap-x-2">
+                    <img src="@content.LocationIcon?.Url()" alt="">
+                    <p class="text-sm font-semibold text-primary">@content.TitleLocation</p>
+                    <p class="text-body-text text-sm col-start-2">@address</p>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] items-center gap-y-1 gap-x-2">
+                    <img src="@content.PhoneIcon?.Url()" alt="">
+                    <p class="text-sm font-semibold text-primary">@content.TitlePhone</p>
+                    <p class="text-body-text text-sm col-start-2">@phoneNumber</p>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] items-center gap-y-1 gap-x-2">
+                    <img src="@content.EmailIcon?.Url()" alt="">
+                    <p class="text-sm font-semibold text-primary">@content.TitleEmail</p>
+                    <p class="text-body-text text-sm col-start-2">@email</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
