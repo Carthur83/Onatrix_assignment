@@ -28,6 +28,19 @@
                   "appearance": {}
                 }
               ]
+            },
+            {
+              "label": "Spacing",
+              "items": [
+                {
+                  "label": "Space ↓",
+                  "data": {
+                    "tag": "p",
+                    "class": "mb-4"
+                  },
+                  "appearance": { "style": "margin-bottom:0.5rem;" }
+                }           
+              ]
             }
           ]
         }
