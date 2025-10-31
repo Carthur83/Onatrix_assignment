@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.TestimonialSection)Model.Content;
+}
+
+<section class="bg-gray-light relative">
+    <div class="custom-container grid grid-cols-2 py-20">
+        <div>
+            <p class="text-sm text-secondary font-bold pb-1">@content.Label</p>
+            <h2 class="text-[2.5rem] text-primary font-bold leading-tight pb-7 pr-24">@content.Title</h2>
+            <p class="text-xl text-gray-2 italic pb-6">@content.InfoText</p>
+            @if(content.RatingImg != null)
+            {
+                <img class="pb-6" src="@content.RatingImg.Url()" alt="5 star rating">
+            }          
+            <p class="text-sm text-black pb-1">@content.ReviewerName</p>
+            <p class="text-xl text-black">@content.CompanyName</p>
+        </div>
+    </div>
+
+    <div class="absolute top-0 right-0 h-full">
+        @if (content.Image != null)
+        {
+            <img src="@content.Image.Url()" alt="Picture of Kevin Gardner" class="h-full w-full object-cover object-center">
+        }
+        
+    </div>
+
+</section>

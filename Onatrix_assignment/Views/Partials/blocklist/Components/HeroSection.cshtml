@@ -19,7 +19,7 @@
             <h1 class="text-primary font-bold text-[4.375rem] leading-[1.2]">@content.HeroTitle</h1>
             <div class="text-primary px-1">@Html.Raw(content.HeroText)</div>
 
-            <a class="bg-primary self-start text-secondary-2 text-[1.125rem] font-bold rounded cursor-pointer py-3 px-9">Contact Us</a>
+            <a href="@content?.HeroLink?.Url" class="bg-primary self-start text-secondary-2 text-[1.125rem] font-bold rounded cursor-pointer py-3 px-9">@content?.HeroLink?.Name</a>
 
             
         </div>

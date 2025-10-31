@@ -5,13 +5,16 @@
 
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+    var settings = Model.Settings as ContentModels.ContactSettings;
 
     var address = siteSettings?.Address ?? "No address added";
     var phoneNumber = siteSettings?.Phone ?? "No number added";
     var email = siteSettings?.Email ?? "No email added";
+
+    var sectionColor = settings?.ContactBgColor?.Color ?? "ffffff";
 }
 
-<section id="contact-info" class="bg-light relative -z-999 pt-6 ">
+<section id="contact-info" class="relative -z-999 pt-6" style="background-color:@sectionColor;">
     <div class="custom-container grid grid-cols-2 gap-70 overflow-hidden">
         <div>
             <img src="@content?.ContactImage?.Url()" alt="">
