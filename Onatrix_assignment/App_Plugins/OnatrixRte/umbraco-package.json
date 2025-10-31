@@ -17,6 +17,19 @@
           "label": "Paragraphs",
           "items": [
             {
+              "label": "M - 20",
+              "items": [
+                {
+                  "label": "Bold",
+                  "data": {
+                    "tag": "p",
+                    "class": "text-rte-md font-bold"
+                  },
+                  "appearance": {}
+                }
+              ]
+            },
+            {
               "label": "L - 40",
               "items": [
                 {
@@ -33,13 +46,21 @@
               "label": "Spacing",
               "items": [
                 {
-                  "label": "Space ↓",
+                  "label": "Small space",
                   "data": {
                     "tag": "p",
                     "class": "mb-4"
                   },
                   "appearance": { "style": "margin-bottom:0.5rem;" }
-                }           
+                },
+                {
+                  "label": "Large space",
+                  "data": {
+                    "tag": "p",
+                    "class": "mb-8"
+                  },
+                  "appearance": { "style": "margin-bottom:2rem;" }
+                }
               ]
             }
           ]
