@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.QuestionFormSection)Model.Content;
+}
+
+<section id="question-form ">
+    <div class="custom-container my-20">
+        <h3 class="text-[1.562rem] text-primary font-bold mb-5">@content.FormTitle</h3>
+        <form class="flex flex-col gap-5">
+            <div class="flex gap-8">
+                <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem] flex-1" type="text" placeholder="Name">
+                <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem] flex-1" type="text" placeholder="Email">
+            </div>
+            <textarea class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem]" name="" id=""></textarea>
+
+            <div>
+                <button class="bg-primary text-base font-bold text-secondary-2 py-[.9rem] px-10">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
