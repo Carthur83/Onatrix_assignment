@@ -21,6 +21,7 @@
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-light: 300;
+    --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-tight: 1.25;
@@ -42,6 +43,7 @@
     --color-border-200: #EAEAEA;
     --color-input: #EBEBEB;
     --font-poppins: "poppins", sans-serif;
+    --text-rte-sm: .875rem;
     --text-rte-md: 1.25rem;
     --text-rte-lg: 2.5rem;
   }
@@ -293,9 +295,6 @@
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
-  }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
   }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
@@ -700,6 +699,9 @@
   .text-rte-md {
     font-size: var(--text-rte-md);
   }
+  .text-rte-sm {
+    font-size: var(--text-rte-sm);
+  }
   .leading-\[1\.2\] {
     --tw-leading: 1.2;
     line-height: 1.2;
@@ -723,6 +725,10 @@
   .font-light {
     --tw-font-weight: var(--font-weight-light);
     font-weight: var(--font-weight-light);
+  }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -811,6 +817,26 @@ body {
   height: auto;
   width: 100%;
   object-fit: cover;
+}
+.rte-ul {
+  margin-top: calc(var(--spacing) * 3);
+  list-style-type: disc;
+  padding-left: calc(var(--spacing) * 5);
+  & *::marker {
+    color: var(--color-secondary);
+  }
+  &::marker {
+    color: var(--color-secondary);
+  }
+  & *::-webkit-details-marker {
+    color: var(--color-secondary);
+  }
+  &::-webkit-details-marker {
+    color: var(--color-secondary);
+  }
+}
+.rte-ul li {
+  margin-bottom: calc(var(--spacing) * 3);
 }
 @property --tw-translate-x {
   syntax: "*";

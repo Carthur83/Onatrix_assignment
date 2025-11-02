@@ -26,6 +26,7 @@
     --color-input: #EBEBEB;
     --font-poppins: "poppins", sans-serif;
 
+    --text-rte-sm: .875rem;
     --text-rte-md: 1.25rem;
     --text-rte-lg: 2.5rem;
 }
@@ -52,4 +53,12 @@ body {
 
 .rte img {
     @apply w-full h-auto object-cover;
+}
+
+.rte-ul {
+    @apply list-disc pl-5 mt-3 marker:text-secondary;
+}
+
+.rte-ul li {
+    @apply mb-3;
 }

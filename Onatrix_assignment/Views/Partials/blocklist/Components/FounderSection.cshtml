@@ -17,8 +17,11 @@
 
     <div class="col-span-2">
         <p class="text-body-text text-xl mb-8 font-light italic">@content.QuoteText</p>
-        <div class="text-body-text text-sm rte">
+        <div class="rte mb-8">
             @Html.Raw(content.InfoText)
+        </div>
+        <div class="rte">
+            @Html.Raw(content.BodyText)
         </div>
     </div>
 </section>
