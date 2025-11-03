@@ -62,3 +62,11 @@ body {
 .rte-ul li {
     @apply mb-3;
 }
+
+.input-validation-error {
+    @apply border-red-800 focus:ring-1 focus:ring-red-700;
+}
+
+.field-validation-error {
+    @apply mt-1 block text-sm text-red-700;
+}
