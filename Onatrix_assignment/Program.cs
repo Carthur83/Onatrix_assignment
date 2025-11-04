@@ -1,3 +1,5 @@
+using Azure.Communication.Email;
+using Onatrix_assignment.Interface;
 using Onatrix_assignment.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,10 @@ builder.CreateUmbracoBuilder()
     .AddComposers()
     .Build();
 
+builder.Services.AddSingleton(x => new EmailClient(builder.Configuration["ACS:ConnectionString"]));
+
 builder.Services.AddScoped<FormSubmissionService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 WebApplication app = builder.Build();
 
