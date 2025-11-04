@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix_assignment.ViewModels
 @{
     var content = (ContentModels.QuestionFormSection)Model.Content;
 }
@@ -7,16 +8,25 @@
 <section id="question-form ">
     <div class="custom-container my-20">
         <h3 class="text-[1.562rem] text-primary font-bold mb-5">@content.FormTitle</h3>
-        <form class="flex flex-col gap-5">
-            <div class="flex gap-8">
-                <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem] flex-1" type="text" placeholder="Name">
-                <input class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem] flex-1" type="text" placeholder="Email">
-            </div>
-            <textarea class="border border-input placeholder-gray-1 text-[.812rem] p-[.9rem]" name="" id=""></textarea>
+        
+        <partial name="Partials/Forms/_QuestionForm" model="new QuestionFormViewModel()" />
 
-            <div>
-                <button class="bg-primary text-base font-bold text-secondary-2 py-[.9rem] px-10">Submit</button>
+        @if (TempData["FormSuccess"] != null)
+        {
+            <div class="flex justify-center mt-4">
+                <div class="rounded-xl border border-green-200 bg-green-50 px-6 py-3 text-green-800 shadow-sm text-center">
+                    <span>@TempData["FormSuccess"]</span>
+                </div>
             </div>
-        </form>
+        }
+        else if (TempData["FormError"] != null)
+        {
+            <div class="flex justify-center mt-4">
+                <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800 shadow-sm mx-6">
+                    <span>@TempData["FormError"]</span>
+                </div>
+            </div>
+        }
+
     </div>
 </section>

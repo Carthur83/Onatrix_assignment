@@ -37,5 +37,23 @@ namespace Onatrix_assignment.Controllers
             TempData["FormSuccess"] = "Your request has been submitted successfully. We’ll get back to you shortly.";
             return RedirectToCurrentUmbracoPage();
         }
+
+        public IActionResult HandleQuestionForm(QuestionFormViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            var result = _formService.SaveQuestionRequest(model);
+            if (!result)
+            {
+                TempData["FormError"] = "An error occurred while processing your request. Please try again later.";
+                return RedirectToCurrentUmbracoPage();
+            }
+
+            TempData["FormSuccess"] = "Your question has been submitted successfully. We’ll get back to you shortly.";
+            return RedirectToCurrentUmbracoPage();
+        }
     }
 }
