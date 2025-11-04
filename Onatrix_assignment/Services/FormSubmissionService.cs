@@ -1,17 +1,19 @@
-﻿using Onatrix_assignment.ViewModels;
+﻿using Onatrix_assignment.Interface;
+using Onatrix_assignment.ViewModels;
 using System.Diagnostics;
 using Umbraco.Cms.Core.Services;
 
 namespace Onatrix_assignment.Services;
 
-public class FormSubmissionService(IContentService contentService)
+public class FormSubmissionService(IContentService contentService, IEmailService emailService)
 {
     private readonly IContentService _contentService = contentService;
+    private readonly IEmailService _emailService = emailService;
 
     public bool SaveCallbackRequest(CallbackFormViewModel model)
     {
-		try
-		{
+        try
+        {
             var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
             if (container == null)
                 return false;
@@ -26,13 +28,18 @@ public class FormSubmissionService(IContentService contentService)
 
             var saveResult = _contentService.Save(request);
 
+            if (saveResult.Success)
+            {
+                _emailService.SendVerificationEmailAsync(model.Email);
+            } 
+
             return saveResult.Success;
         }
-		catch (Exception ex)
-		{
+        catch (Exception ex)
+        {
             Debug.WriteLine(ex.Message);
             return false;
-		}
+        }
     }
 
     public bool SaveQuestionRequest(QuestionFormViewModel model)
@@ -51,6 +58,11 @@ public class FormSubmissionService(IContentService contentService)
             request.SetValue("questionFormQuestion", model.Question);
 
             var saveResult = _contentService.Save(request);
+
+            if (saveResult.Success)
+            {
+                _emailService.SendVerificationEmailAsync(model.Email);
+            }
 
             return saveResult.Success;
         }
