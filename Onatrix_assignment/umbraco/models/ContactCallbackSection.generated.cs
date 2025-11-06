@@ -79,6 +79,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("formTitle")]
-		public virtual string FormTitle => this.Value<string>(_publishedValueFallback, "formTitle");
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FormTitle => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "formTitle");
 	}
 }

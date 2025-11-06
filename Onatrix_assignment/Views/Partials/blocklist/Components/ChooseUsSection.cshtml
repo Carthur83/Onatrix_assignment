@@ -16,11 +16,11 @@
             @Html.Raw(content.ChooseUsTitle)
         </h2>
         <p class="text-body-text text-base text-center my-10 md:mx-48 md:text-left">@content.ChooseUsDescription</p>
-        <a class="bg-primary text-secondary-2 text-base font-bold rounded cursor-pointer py-4 px-10" href="">Read our story</a>
+        <a class="bg-primary text-secondary-2 text-base font-bold rounded cursor-pointer py-4 px-10" href="@content?.ChooseUsLink?.Url">@content?.ChooseUsLink?.Name</a>
     </div>
 
     <div class="mt-20">
-        @if (content.ChooseUsImage != null)
+        @if (content?.ChooseUsImage != null)
         {
             <img src="@content.ChooseUsImage.Url()" alt="picture on people">
         }
