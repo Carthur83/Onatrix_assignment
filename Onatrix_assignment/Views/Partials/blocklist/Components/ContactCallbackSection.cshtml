@@ -13,15 +13,15 @@
 
 }
 
-<section class="map relative mb-28">
-    <img src="@content?.BgImage?.Url()" class="h-full w-full object-cover min-h-[500px]" alt="">
+<section class="relative pt-75 px-4">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat max-h-[750px] -z-10" style="background-image: url(@content?.BgImage?.Url());"></div>
 
-    <div class="min-w-[1170px] mx-auto absolute shadow-lg p-20 -translate-y-110 translate-x-90 bg-light rounded">
+    <div class="custom-container shadow-lg p-8 md:p-20 bg-light rounded z-10 mb-4 md:mb-0">
 
-        <div class="flex flex-col items-center gap-3 mb-10">
-            <p class="text-sm text-secondary font-bold">Request a call back</p>
-            <h2 class="text-[2.5rem] text-primary font-bold leading-none pb-10">Let us know about your next project</h2>
-            <p class="text-sm text-body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur, ligula semper sagittis lobortis, eros metus efficitur purus</p>
+        <div class="flex flex-col items-center gap-3 mb-8">
+            <p class="text-sm text-secondary font-bold">@content?.FormLabel</p>
+            <h2 class="leading-none pb-4 md:pb-6 md:px-55">@Html.Raw(content?.FormTitle)</h2>
+            <p class="text-xs md:text-sm text-body-text text-center md:px-55">@content?.FormDescription</p>
         </div>
 
         <partial name="Partials/Forms/_ContactCallbackForm" model="formViewModel" />
