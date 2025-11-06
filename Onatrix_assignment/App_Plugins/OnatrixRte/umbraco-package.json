@@ -49,7 +49,7 @@
                   "label": "Bold",
                   "data": {
                     "tag": "p",
-                    "class": "text-rte-lg font-bold"
+                    "class": "text-rte-md md:text-rte-lg font-bold"
                   },
                   "appearance": {}
                 }
@@ -57,15 +57,15 @@
             }
           ]
         },
-        {
-          "label": "Bullet list",
-          "data": {
-            "tag": "ul",
-            "class": "rte-ul"
-          }
-        }
-      ]
-    },
+            {
+              "label": "Bullet list",
+              "data": {
+                "tag": "ul",
+                "class": "rte-ul"
+              }
+            }
+          ]
+        },
     {
       "type": "tiptapToolbarExtension",
       "kind": "styleMenu",
