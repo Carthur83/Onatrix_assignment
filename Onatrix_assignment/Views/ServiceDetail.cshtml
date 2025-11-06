@@ -8,13 +8,13 @@
 
 <section>
 
-    <div class="custom-container grid grid-cols-[300px_1fr] gap-10 mt-20">
-        <div class=" flex flex-col">
+    <div class="custom-container grid md:grid-cols-[300px_1fr] gap-10 mt-20 px-4">
+        <div class="hidden md:block flex flex-col">
             @Html.GetBlockListHtml(Model.ServiceDetailAsides)
         </div>
 
 
-        <div class="border-l border-border-200 pl-13">
+        <div class="md:border-l border-border-200 md:pl-13">
             <div class="rte">@Html.Raw(Model.ServiceDetailBody)</div>
         </div>
     </div>
