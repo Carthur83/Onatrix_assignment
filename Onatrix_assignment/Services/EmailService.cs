@@ -29,7 +29,7 @@ public class EmailService(EmailClient emailClient, IConfiguration configuration)
                         We’ve received your request and will get back to you shortly.
                       </p>
                       <div style='margin-top: 30px;'>
-                        <a href='' 
+                        <a href='https://onatrix-8db0a889-gtbmd9fxh0gvasgk.swedencentral-01.azurewebsites.net/' 
                            style='display: inline-block; padding: 12px 24px; background-color: #4F5955; color: #F2EDDC; text-decoration: none; border-radius: 4px; font-weight: bold;'>
                           Visit our website
                         </a>
